@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+      html {
+    scroll-behavior: smooth;
+}
+      body{
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+        background-color: rgb(252, 225, 225);
+      }
+      #navb{
+        background-color: rgb(250, 208, 222);
+        padding: 0%;
+      }
+        #logo{
+            height: 50px;
+            width: 50px; 
+        }
+        #nav1{
+          margin-left: 20%;
+        }
+        #sec2{
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          color: rgb(175, 1, 108);
+        }
+        #imgsec2{
+          transition: transform 0.3s ease;
+        }
+        #imgsec2:hover{
+           transform: scale(1.1);
+        }
+        #cols4{
+          background-color: rgb(207, 75, 152);
+        }
+        #bts4{
+          background-color: rgb(243, 162, 206);
+          color: black;
+        }
+        #sec5{
+          background-color: rgb(248, 194, 212);
+        }
+        footer{
+          background-color: rgb(207, 75, 152);
+        }
+        .banner {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-image: url("sec1bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner-content h1 {
+    color: black;
+    font-size: 40px;
+}
+
+.banner-content p {
+    color: black;
+    font-size: 18px;
+}
+
+.shop-btn {
+    background-color: rgb(248, 195, 227);
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.banner-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 25px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* form */
+.order-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.order-form {
+    background-color: rgb(250, 208, 222);
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.order-form h4 {
+    text-align: center;
+    color: rgb(207, 75, 152);
+}
+
+.order-form p {
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Mobile view */
+@media (max-width: 576px) {
+
+    /* Navbar */
+    #logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar .container-fluid {
+        padding: 10px 15px;
+    }
+
+    #nav1 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Banner */
+    .banner {
+        height: 300px;
+        background-position: center;
+    }
+
+    .banner-content {
+        padding: 10px;
+    }
+
+    .banner-content h1 {
+        font-size: 25px;
+    }
+
+    .banner-content p {
+        font-size: 14px;
+    }
+
+    .shop-btn {
+        padding: 9px 18px;
+        font-size: 14px;
+    }
+
+    .banner-arrows {
+        padding: 0 10px;
+    }
+
+    /* Feature section */
+    .row .col-lg-2.bg-white {
+        width: 50%;
+        padding: 12px 5px;
+    }
+
+    .row .col-lg-2.bg-white p {
+        font-size: 12px;
+    }
+
+    /* Categories */
+    #sec2 {
+        padding: 20px 10px;
+    }
+
+    #sec2 .col-lg-2 {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+
+    #imgsec2 {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+    }
+
+    /* Offer section */
+    .row .col-lg-5 {
+        width: 100%;
+        margin: 0 !important;
+        padding: 20px !important;
+    }
+
+    .row .col-lg-2 img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    /* Best combos */
+    #cols4 {
+        width: 80%;
+        margin: 15px auto !important;
+    }
+
+    #cols4 img {
+        width: 180px;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .row .col-lg-1 {
+        width: 100%;
+        justify-content: center !important;
+        padding: 15px;
+    }
+
+    /* About section */
+    #about {
+        width: 92%;
+        padding: 20px !important;
+        margin: 25px auto !important;
+    }
+
+    #about p {
+        font-size: 13px;
+        text-align: justify;
+    }
+
+    /* Services section */
+    #sec5 .col-lg-3 {
+        width: 50%;
+        padding: 15px 5px;
+    }
+
+    #sec5 p {
+        font-size: 12px;
+    }
+
+    /* Footer */
+    footer .row {
+        margin: 0 !important;
+        padding: 25px 20px !important;
+    }
+
+    footer .col-lg-3 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    /* Order form */
+    .order-form {
+        width: 90%;
+        padding: 25px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .order-form input {
+        font-size: 14px;
+    }
+}
+
+
+
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <img class="navbar-brand rounded-circle ms-5" src="logo.jfif" id="logo">
+            <div class="collapse navbar-collapse ps-5" id="collapsibleNavbar">
+                <ul class="navbar-nav ps-5" id="nav1">
+                    <li class="nav-item ps-5"><a class="nav-link ps-5" href="index.html">Home</a></li>
+                    <li class="nav-item ps-5"><a class="nav-link" href="#sec2">Products</a></li>
+                    <!-- <li class="nav-item dropdown ps-5">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Collections</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="">Lipsticks</a> <hr>
+                            <li class="dropdown-item" href="">Skincare</li> <hr>
+                            <li class="dropdown-item" href="">Lotions</li> <hr>
+                            <li class="dropdown-item" href="">Combos</li> 
+                        </ul>
+                    </li> -->
+                    <li class="nav-item ps-5"><a class="nav-link" href="#sec2">Collections</a></li>
+                    <li class="nav-item ps-5"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item ps-5 pe-5 me-5"><a class="nav-link" href="#footerid">Contact Us</a></li>
+                    <li class="nav-item ps-5 ms-5" id="nav2">
+                      <label for="search-toggle" class="search-icon">
+                        <i class="bi bi-search fs-5"></i>
+                      </label>
+                    </li>
+                    <li class="nav-item ps-5"><i class="bi bi-person-circle fs-4"></i></li>
+                    <li class="nav-item ps-5"><i class="bi bi-cart3 fs-4"></i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- <img class="imgfluid" src="sec1bg.jpg" height="800px" width="1950px"> -->
+    <div class="banner" id="mainimg">
+    <div class="banner-content">
+
+        <h1>Cosmetic Products</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <a class="shop-btn" href="#sec2">Shop Now</a>
+
+        <div class="banner-arrows" >
+            <button class="bi bi-arrow-left" onclick="prev()"></button>
+            <button class="bi bi-arrow-right" onclick="next()"></button>
+        </div>
+
+    </div>
+</div>
+    <!-- <div class="container-fluid">
+      <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+        <h1 class="card-title text-center text-dark">Cosmetic Products</h1>
+        <p class="card-title text-center dark">Lorem ipsum dolor sit amet consectetur.</p>
+        <button class="btn card-title text-center text-dark mt-2" style="background-color: rgb(248, 195, 227);">Shop Now</button>
+        <div class="d-flex justify-content-between align-items-center w-100 px-4">
+          <i class="bi bi-arrow-left-circle fs-2" style="color: white;"></i>
+          <i class="bi bi-arrow-right-circle fs-2" style="color: white;"></i>
+        </div>
+      </div>
+    </div> -->
+    <div class="row justify-content-center align-items-center text-center text-dark">
+        <div class="col-lg-2 bg-white"><b>Original brand </b><p>Lorem ipsum dolor sit amet consectetur</p></div>
+        <div class="col-lg-2 bg-white"><b>Safe Product </b><p>Lorem ipsum dolor sit amet consectetur</p></div>
+        <div class="col-lg-2 bg-white"><b>100% Pure </b><p>Lorem ipsum dolor sit amet consectetur</p></div>
+        <div class="col-lg-2 bg-white"><b>Trust us </b><p>Lorem ipsum dolor sit amet consectetur</p></div>
+    </div>
+    <div class="pt-5" id="sec2">
+      <h5 class="text-center pb-5"><b>SHOP BY CATEGORY</b></h5>
+      <div class="row text-center">
+        <div class="col-lg-2">
+          <img class="rounded" src="lipsticks.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">Lipsticks</h6>
+        </div>
+        <div class="col-lg-2">
+          <img class="rounded" src="lotion.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">Lotions</h6>
+        </div>
+        <div class="col-lg-2">
+          <img class="rounded" src="skinCare.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">SkinCare</h6>
+        </div>
+        <div class="col-lg-2">
+          <img class="rounded" src="combo1.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">Combo 1</h6>
+        </div>
+        <div class="col-lg-2">
+          <img class="rounded" src="combo2.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">Combo 2</h6>
+        </div>
+        <div class="col-lg-2">
+          <img class="rounded" src="combo3.jpg" width="200px" height="200px" id="imgsec2">
+          <h6 class="pt-2">Combo 3</h6>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row mt-5 text-center text-white">
+        <div class="col-lg-5 ps-5 ms-5" style="background-color: rgb(207, 75, 152);">
+          <h6 class="mt-5 mb-3">LIMITED TIME OFFER</h6>
+          <h2>Up to 30% Off <br> on Best Sellers</h2>
+          <p class="mt-3">Glow more, spend less. <br> Treat Your Skin today!</p>
+          <button class="btn mb-3" style="background-color: rgb(243, 162, 206);" onclick="openForm()">Shope The Sale</button>
+        </div>
+        <div class="col-lg-2"><img src="imgsec3.jpg" width="1000px" height="300px"></div>
+      </div>
+    </div>
+    <div class="container-fluid mt-5">
+      <h5 class="text-center pb-3"><b>BEST COMBOS</b></h5>
+      
+      <div class="row text-center text-white">
+        <div class="col-lg-2 ms-5 me-5 pt-4 pb-4" id="cols4">
+          <!-- heartfill -->
+          <h6 class="text-end"><i onclick="toggleHeart(this)" class="bi bi-heart fs-4"></i></h6><br><br>
+          <img src="combo1.jpg" class="rounded" width="200px" height="200px">
+          <h5>Combo 1</h5>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><br><br>
+          <button class="btn text-black" id="bts4" onclick="openForm()">Buy Now</button>
+        </div>
+        <div class="col-lg-2 ms-5 me-5 pt-4 pb-4" id="cols4">
+
+          <h6 class="text-end"><i onclick="toggleHeart(this)" class="bi bi-heart fs-4"></i></h6><br><br>
+          <img src="combo2.jpg" class="rounded" width="200px" height="200px" >
+          <h5>Combo 2</h5>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></i><br><br>
+          <button class="btn text-black" id="bts4" onclick="openForm()">Buy Now</button>
+        </div>
+        <div class="col-lg-2 ms-5 me-5 pt-4 pb-4" id="cols4">
+
+          <h6 class="text-end"><i onclick="toggleHeart(this)" class="bi bi-heart fs-4"></i></h6><br><br>
+          <img src="combo3.jpg" class="rounded" width="200px" height="200px">
+          <h5>Combo 3</h5>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><br><br>
+          <button class="btn text-black" id="bts4" onclick="openForm()">Buy Now</button>
+        </div>
+        <div class="col-lg-2 ms-5 me-5 pt-4 pb-4" id="cols4">
+
+          <h6 class="text-end"><i onclick="toggleHeart(this)" class="bi bi-heart fs-4"></i></h6><br><br>
+          <img src="combo4.jpg" class="rounded" width="200px" height="200px">
+          <h5>Combo 4</h5>
+          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><br><br>
+          <button class="btn text-black" id="bts4" onclick="openForm()">Buy Now</button>
+        </div>
+        <div class="col-lg-1 pt-4 pb-4 d-flex justify-content-end align-items-center">
+          <p class="text-black pe-5">View More</p>
+          <i class="bi bi-arrow-right-circle fs-2" style="color: black;"></i>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-5 mb-5 text-white pt-5 ps-5 pb-5 pe-5" style="background-color: rgb(204, 33, 133);" id="about">
+      <h5>About Us</h5><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, voluptatibus sequi voluptate sunt quae atque dolores ratione corrupti! Atque molestiae minus repellat et ab sunt dolore in dolorum provident sit?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis dicta illo aliquam pariatur alias, architecto voluptatum suscipit voluptatibus deleniti accusamus quas repudiandae rerum accusantium dolore dolorum ab labore rem?Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore vero sed commodi error, odit aperiam ipsam non iure et, pariatur quisquam quaerat dignissimos mollitia? Ut odio laudantium eligendi quae laboriosam?</p><br>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quidem voluptatem ab nisi! Aspernatur aliquam, odio culpa ratione temporibus sequi aliquid explicabo deleniti velit est corporis rem, quae iure voluptate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo beatae sunt ullam ipsa molestiae vel voluptatum ratione numquam vitae, provident quidem labore. Veritatis, aspernatur eum nesciunt pariatur possimus quae repellat?Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, dolorem quo sapiente, vel pariatur veniam quae suscipit fugiat delectus eum expedita placeat, non quas asperiores at! Fugiat quia beatae facere!</p>
+    </div>
+    <div id="sec5">
+      <div class="row mt-5 text-center pt-4 pb-2">
+        <div class="col-lg-3">
+          <i></i>
+          <h6>Free Shipping</h6>
+          <p>Lorem, ipsum dolor sit amet</p>
+        </div>
+        <div class="col-lg-3">
+          <i></i>
+          <h6>Easy Return</h6>
+          <p>Lorem, ipsum dolor sit amet</p>
+        </div>
+        <div class="col-lg-3">
+          <i></i>
+          <h6>Secure Payment</h6>
+          <p>Lorem, ipsum dolor sit amet</p>
+        </div>
+        <div class="col-lg-3">
+          <i></i>
+          <h6>24/7 Support</h6>
+          <p>Lorem, ipsum dolor sit amet</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- form -->
+     <div id="order" class="order-overlay">
+      <div class="order-form">
+      <button class="closs-btn" onclick="closeForm()">&times;</button>
+      <form id="form" >
+        <h4>Place your order</h4>
+        <p>Enter your details</p>
+        <label>Name</label>
+        <input class="form-control" placeholder="Enter your name" required><br><br>
+        <label>Mob No</label>
+        <input class="form-control" placeholder="Enter your Mobile Number" required><br><br>
+        <label>Address</label>
+        <input class="form-control" placeholder="Enter your Address" required><br><br>
+        <button class="btn w-100" onclick="confirmOrder(event)" style="background-color: rgb(207, 75, 152);">Submit</button>
+      </form>
+      <div id="sucmsg" style="display: none;">
+        <h4 class="text-success mt-3"><i class="bi bi-check-circle-fill"></i>Order Confirmed</h4>
+        <p>Your order has been placed successfully</p>
+        <button class="btn btn-success" onclick="closeForm()" style="background-color: rgb(207, 75, 152);">Ok</button>
+      </div>
+      </div>
+     </div>
+
+    <footer id="footerid">
+      <div class="row ms-5 pt-5 pb-5">
+        <div class="col-lg-3">
+          <img src="logo.jfif" class="rounded mb-2" height="50px" width="50px">
+          <h5>Cosmetic Products</h5>
+          <p>Lorem ipsum dolor sit amet consectetur</p>
+          <i class="bi bi-instagram me-2"></i> <i class="bi bi-facebook ms-2 me-2"></i><i class="bi bi-youtube ms-2 me-2"></i><i class="bi bi-pinterest ms-2 me-2"></i><br><br>
+          <p>@2026 All Copy Rights</p>
+        </div>
+        <div class="col-lg-3">
+          <h6>Contact Us</h6><br>
+          <p>9876543210 <br> abcd@gmail.com <br> insta_id <br> facebood_id <br> pinterest_id</p>
+        </div>
+        <div class="col-lg-3">
+          <h6>Customer Care</h6><br>
+          <p>Track your order <br> Shipping policy <br> Return & refund <br> Terms and conditons <br>Privacy policy</p>
+        </div>
+        <div class="col-lg-3">
+          <h6>Store Adress</h6><br>
+          <p>122/2 <br> abc Street <br> def Road <br> ghjklm <br> 636 122</p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"> </script>
+    <script>
+      let images = ["sec1bg.jpg" , "bg3.webp" , "imgsec3.jpg" , "combo1.jpg"];
+    let index = 0;
+    function next(){
+      index++;
+      if(index >= images.length){
+        index = 0;
+      }
+      document.getElementById("mainimg").style.backgroundImage = `url('${images[index]}')`;
+    }
+    function prev(){
+      index--;
+      if(index<0){
+        index = images.length - 1;
+      }
+      document.getElementById("mainimg").style.backgroundImage = `url('${images[index]}')`;
+    }
+    function toggleHeart(heart){
+      heart.classList.toggle("bi-heart");
+      heart.classList.toggle("bi-heart-fill");
+    }
+    function openForm() {
+      document.getElementById("order").style.display = "flex";
+      document.getElementById("form").style.display = "block";
+      document.getElementById("sucmsg").style.display = "none";
+    }
+    function closeForm() {
+      document.getElementById("order").style.display = "none";
+      document.getElementById("form").reset();
+    }
+    function confirmOrder(event) {
+      event.preventDefault();
+      document.getElementById("form").style.display = "none";
+      document.getElementById("sucmsg").style.display = "block";
+    }
+
+    
+    </script>
+</body>
+</html>
